@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Modern Edge | Barber & Salon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'accent-gold': '#c5a880',
+                        'accent-gold-hover': '#b3956b',
+                        'primary-dark': '#1a1a1a',
+                        'card-dark': '#262626'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base Reset Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* View wrapper fixed containment layout to prevent layout clipping leaks */
+        .booking-slider-window {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .view-container {
+            display: flex;
+            width: 200%;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .main-panel, .confirm-panel {
+            width: 50%;
+            flex-shrink: 0;
+            box-sizing: border-box;
+        }
+
+        /* Custom thin scrollbar for time slots matrix */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e4e4e7;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-white text-zinc-800 font-sans antialiased">
+
+    <header class="flex justify-between items-center px-[5%] py-5 bg-primary-dark text-white sticky top-0 z-50">
+        <div class="text-xl font-bold tracking-[2px] text-accent-gold">THE MODERN EDGE</div>
+        <nav>
+            <ul class="flex items-center gap-5 list-none max-md:hidden">
+                <li><a href="#services" class="hover:text-accent-gold transition-colors font-medium">Services</a></li>
+                <li><a href="#team" class="hover:text-accent-gold transition-colors font-medium">Our Team</a></li>
+                <li><a href="#reviews" class="hover:text-accent-gold transition-colors font-medium">Reviews</a></li>
+                <li><a href="#booking" class="bg-accent-gold text-primary-dark px-4 py-2 rounded font-medium hover:bg-accent-gold-hover transition-colors">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="relative bg-primary-dark overflow-hidden min-h-[75vh] flex items-center px-[5%] py-16">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,#262626,transparent_60%)] opacity-40"></div>
+        
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 bg-zinc-800/60 border border-zinc-700/50 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-gold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-gold animate-pulse"></span>
+                    Premium Grooming Experience
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight">
+                    Look Sharp. <br class="hidden sm:inline" />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-gold to-amber-200">Feel Confident.</span>
+                </h1>
+                <p class="text-base sm:text-lg text-zinc-400 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                    Elevate your personal aesthetic with specialized, world-class barbers and modern styling packages tailored strictly to you.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                    <a href="#booking" class="bg-accent-gold text-primary-dark px-8 py-4 font-bold rounded-xl hover:bg-accent-gold-hover shadow-lg shadow-accent-gold/10 hover:shadow-accent-gold/20 active:scale-[0.98] transition-all duration-200 text-center text-sm tracking-wider uppercase">
+                        Book Appointment
+                    </a>
+                    <a href="#services" class="border border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500 px-8 py-4 font-bold rounded-xl active:scale-[0.98] transition-all duration-200 text-center text-sm tracking-wider uppercase bg-zinc-900/30">
+                        View Menu
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 relative flex justify-center lg:justify-end">
+                <div class="relative w-full max-w-[400px] aspect-[4/5] sm:aspect-square lg:aspect-[4/5]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/30 via-transparent to-transparent z-10 rounded-2xl"></div>
+                    <div class="w-full h-full rounded-2xl overflow-hidden shadow-2xl shadow-black/80 border border-zinc-700">
+                        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80" alt="Premium Grooming Experience" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="px-[5%] py-16 bg-zinc-50">
+        <h2 class="text-3xl font-bold text-center mb-12 relative after:content-[''] after:block after:w-12 after:h-0.5 after:bg-accent-gold after:mx-auto after:mt-2">Our Menu</h2>
+        <div class="flex flex-wrap gap-8 justify-center">
+            <div class="bg-white p-7 rounded-lg border border-zinc-100 shadow-sm flex flex-col flex-1 min-w-[300px] max-w-[400px]">
+                <h3 class="text-xl font-bold mb-1">Classic Haircut</h3>
+                <span class="text-zinc-500 text-sm">30 mins</span>
+                <span class="text-2xl font-bold text-accent-gold my-2">$35</span>
+                <p class="text-zinc-600">A precision cut tailored to your face shape, finished with a hot towel wipe.</p>
+            </div>
+            <div class="bg-white p-7 rounded-lg border border-zinc-100 shadow-sm flex flex-col flex-1 min-w-[300px] max-w-[400px]">
+                <h3 class="text-xl font-bold mb-1">Beard Trim & Lineup</h3>
+                <span class="text-zinc-500 text-sm">20 mins</span>
+                <span class="text-2xl font-bold text-accent-gold my-2">$25</span>
+                <p class="text-zinc-600">Detailed shaping, trimming, and razor line edging for a crisp finish.</p>
+            </div>
+            <div class="bg-white p-7 rounded-lg border border-zinc-100 shadow-sm flex flex-col flex-1 min-w-[300px] max-w-[400px]">
+                <h3 class="text-xl font-bold mb-1">The Premium Package</h3>
+                <span class="text-zinc-500 text-sm">60 mins</span>
+                <span class="text-2xl font-bold text-accent-gold my-2">$60</span>
+                <p class="text-zinc-600">Full haircut, beard grooming, relaxing scalp massage, and style.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="px-[5%] py-16 bg-white">
+        <h2 class="text-3xl font-bold text-center mb-12 relative after:content-[''] after:block after:w-12 after:h-0.5 after:bg-accent-gold after:mx-auto after:mt-2">Meet the Stylists</h2>
+        <div class="flex flex-wrap gap-10 justify-center">
+            <div class="text-center flex-1 min-w-[250px] max-w-[300px]">
+                <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-md">
+                    <img src="1.png" alt="Marcus V." class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg font-bold">Marcus V.</h3>
+                <p class="text-zinc-500 text-sm">Master Barber & Fade Specialist</p>
+            </div>
+            <div class="text-center flex-1 min-w-[250px] max-w-[300px]">
+                <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-md">
+                    <img src="2.png" alt="Sarah K." class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg font-bold">Sarah K.</h3>
+                <p class="text-zinc-500 text-sm">Colorist & Modern Stylist</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="px-[5%] py-16 bg-primary-dark text-white">
+        <h2 class="text-3xl font-bold text-center mb-12 relative after:content-[''] after:block after:w-12 after:h-0.5 after:bg-accent-gold after:mx-auto after:mt-2">What Our Clients Say</h2>
+        <div class="flex flex-wrap gap-8 justify-center">
+            <blockquote class="bg-card-dark p-6 border-l-4 border-accent-gold rounded flex-1 min-w-[320px] max-w-[500px]">
+                <p class="text-zinc-300">"Best haircut I've had in years. Marcus pays incredible attention to detail. Highly recommend!"</p>
+                <cite class="block mt-4 text-accent-gold not-italic font-medium">– Jordan T.</cite>
+            </blockquote>
+            <blockquote class="bg-card-dark p-6 border-l-4 border-accent-gold rounded flex-1 min-w-[320px] max-w-[500px]">
+                <p class="text-zinc-300">"The atmosphere is so welcoming and modern. Sarah completely nailed the color I wanted."</p>
+                <cite class="block mt-4 text-accent-gold not-italic font-medium">– Elena R.</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <section id="booking" class="px-[5%] py-16 bg-zinc-50 flex flex-col items-center">
+        <h2 class="text-3xl font-bold text-center mb-2 relative after:content-[''] after:block after:w-12 after:h-0.5 after:bg-accent-gold after:mx-auto after:mt-2">Book Your Session</h2>
+        <p class="text-zinc-500 text-center mb-10">Select an available time slot below to secure your placement.</p>
+
+        <div class="bg-white rounded-xl border border-zinc-200 shadow-xl w-full max-w-xl booking-slider-window">
+            <div class="view-container" id="viewContainer">
+                
+                <div class="main-panel flex flex-col justify-between">
+                    
+                    <div class="p-6 pb-4">
+                        <div class="flex items-center justify-between gap-4">
+                            <div class="flex items-center gap-4">
+                                <div id="headerStylistAvatar" class="w-14 h-14 rounded-xl flex items-center justify-center ring-1 ring-black/5 flex-shrink-0 overflow-hidden">
+                                    <img src="1.png" alt="Stylist Avatar" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-zinc-900 tracking-tight" id="activeStylistTitle">Marcus V.</h3>
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-zinc-500 mt-0.5">
+                                        <div class="flex items-center gap-0.5 text-amber-500 font-medium">
+                                            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                            <span>5.0</span>
+                                        </div>
+                                        <span class="text-zinc-300">•</span>
+                                        <span class="underline cursor-pointer hover:text-zinc-800">48 reviews</span>
+                                        <span class="text-zinc-300">•</span>
+                                        <span id="activeStylistSub">Master Barber</span>
+                                    </div>
+                                    </div>
+                            </div>
+
+                            <div class="text-right flex-shrink-0">
+                                <p class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Starting At</p>
+                                <p class="text-2xl font-bold text-zinc-900 mt-0.5" id="activeServicePrice">$35</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="px-6 pb-3 relative">
+                        <label class="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider mb-1.5">Choose Service</label>
+                        <div class="relative">
+                            <button id="serviceDropdownBtn" class="w-full flex items-center justify-between p-3 bg-zinc-50 text-sm rounded-xl border border-zinc-200 hover:bg-zinc-100/50 transition-all active:scale-[0.99]">
+                                <span id="selectedServiceText" class="text-zinc-800 font-medium truncate pr-2">Classic Haircut ($35)</span>
+                                <svg id="serviceArrow" class="w-4 h-4 text-zinc-400 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div id="serviceDropdownMenu" class="hidden absolute top-full left-0 right-0 mt-1.5 bg-white border border-zinc-200 shadow-xl rounded-xl z-50 overflow-hidden opacity-0 scale-95 transition-all duration-150 transform origin-top">
+                                <button class="service-item w-full text-left px-4 py-3 text-sm text-zinc-700 hover:bg-zinc-50 border-b border-zinc-100 font-medium" data-price="$35">Classic Haircut ($35)</button>
+                                <button class="service-item w-full text-left px-4 py-3 text-sm text-zinc-700 hover:bg-zinc-50 border-b border-zinc-100 font-medium" data-price="$25">Beard Trim & Lineup ($25)</button>
+                                <button class="service-item w-full text-left px-4 py-3 text-sm text-zinc-700 hover:bg-zinc-50 font-medium" data-price="$60">The Premium Package ($60)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="px-6 pb-4 relative">
+                        <label class="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider mb-1.5">Preferred Stylist</label>
+                        <div class="relative">
+                            <button id="stylistDropdownBtn" class="w-full flex items-center justify-between p-3 bg-zinc-50 text-sm rounded-xl border border-zinc-200 hover:bg-zinc-100/50 transition-all active:scale-[0.99]">
+                                <span id="selectedStylistText" class="text-zinc-800 font-medium truncate pr-2">Marcus V. (Master Barber)</span>
+                                <svg id="stylistArrow" class="w-4 h-4 text-zinc-400 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div id="stylistDropdownMenu" class="hidden absolute top-full left-0 right-0 mt-1.5 bg-white border border-zinc-200 shadow-xl rounded-xl z-50 overflow-hidden opacity-0 scale-95 transition-all duration-150 transform origin-top">
+                                <button class="stylist-item w-full text-left px-4 py-3 text-sm text-zinc-700 hover:bg-zinc-50 border-b border-zinc-100 font-medium" data-sub="Master Barber" data-avatar="1.png">Marcus V. (Master Barber)</button>
+                                <button class="stylist-item w-full text-left px-4 py-3 text-sm text-zinc-700 hover:bg-zinc-50 font-medium" data-sub="Colorist & Stylist" data-avatar="2.png">Sarah K. (Colorist & Stylist)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mx-6 border-t border-zinc-100"></div>
+
+                    <div class="p-6 pb-2 flex items-center justify-between">
+                        <button class="p-2 hover:bg-zinc-100 rounded-lg transition-colors active:scale-95">
+                            <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <h4 class="font-semibold text-sm text-zinc-800">Available Slots</h4>
+                        <button class="p-2 hover:bg-zinc-100 rounded-lg transition-colors active:scale-95">
+                            <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+
+                    <div class="px-6 pb-6 space-y-4 max-h-[260px] overflow-y-auto custom-scrollbar">
+                        <div class="space-y-2">
+                            <h5 class="text-xs font-semibold text-zinc-700">Tomorrow</h5>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="time-slot-btn px-3 py-1.5 text-xs font-medium rounded-lg border border-zinc-200 hover:border-zinc-400 hover:bg-zinc-50 transition-all active:scale-95" data-day="Tomorrow" data-time="09:00 AM">09:00 AM</button>
+                                <button class="time-slot-btn px-3 py-1.5 text-xs font-medium rounded-lg border border-zinc-200 hover:border-zinc-400 hover:bg-zinc-50 transition-all active:scale-95" data-day="Tomorrow" data-time="10:30 AM">10:30 AM</button>
+                                <button class="time-slot-btn px-3 py-1.5 text-xs font-medium rounded-lg border border-zinc-200 hover:border-zinc-400 hover:bg-zinc-50 transition-all active:scale-95" data-day="Tomorrow" data-time="11:15 AM">11:15 AM</button>
+                                <button class="time-slot-btn px-3 py-1.5 text-xs font-medium rounded-lg border border-zinc-200 hover:border-zinc-400 hover:bg-zinc-50 transition-all active:scale-95" data-day="Tomorrow" data-time="01:00 PM">01:00 PM</button>
+                                <button class="px-3 py-1.5 text-xs font-medium rounded-lg border border-zinc-100 bg-zinc-50 text-zinc-400/60 cursor-not-allowed line-through" disabled>02:30 PM</button>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h5 class="text-xs font-semibold text-zinc-700">Next Day</h5>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="time-slot-btn px-3 py-1.5 text-xs font-medium rounded-lg border border-zinc-200 hover:border-zinc-400 hover:bg-zinc-50 transition-all active:scale-95" data-day="Next Day" data-time="10:00 AM">10:00 AM</button>
+                                <button class="time-slot-btn px-3 py-1.5 text-xs font-medium rounded-lg border border-zinc-200 hover:border-zinc-400 hover:bg-zinc-50 transition-all active:scale-95" data-day="Next Day" data-time="02:00 PM">02:00 PM</button>
+                                <button class="time-slot-btn px-3 py-1.5 text-xs font-medium rounded-lg border border-zinc-200 hover:border-zinc-400 hover:bg-zinc-50 transition-all active:scale-95" data-day="Next Day" data-time="04:30 PM">04:30 PM</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-zinc-100 p-4 bg-zinc-50/50 flex gap-3">
+                        <button id="clearBtn" class="flex-1 bg-white border border-zinc-200 text-zinc-600 py-2.5 text-sm font-medium rounded-xl hover:bg-zinc-50 transition-colors">Clear Selection</button>
+                        <button id="nextStepPlaceholderBtn" class="flex-1 bg-zinc-900 text-white py-2.5 text-sm font-medium rounded-xl opacity-40 cursor-not-allowed transition-all" disabled>Select a Slot</button>
+                    </div>
+
+                </div>
+
+                <div class="confirm-panel bg-white flex flex-col justify-between">
+                    <div class="p-6 space-y-5">
+                        
+                        <div class="flex items-center justify-between">
+                            <button id="backToMainBtn" class="flex items-center gap-1.5 text-zinc-500 hover:text-zinc-800 transition-colors font-medium text-sm group">
+                                <svg class="w-4 h-4 transform group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+                                <span>Back</span>
+                            </button>
+                            <h3 class="text-base font-bold text-zinc-900 tracking-tight">Verify Schedule</h3>
+                            <div class="w-12"></div>
+                        </div>
+
+                        <div class="flex items-center gap-3.5 p-3.5 bg-zinc-50 rounded-xl border border-zinc-100">
+                            <div id="confirmStylistAvatar" class="w-11 h-11 bg-primary-dark rounded-lg flex items-center justify-center overflow-hidden">
+                                <img src="1.png" alt="Confirmed Stylist" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-zinc-900" id="confirmStylistName">Marcus V.</h4>
+                                <p class="text-xs text-zinc-500 mt-0.5" id="confirmStylistRole">Master Barber</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center space-y-1.5">
+                            <p class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Your Appointed Time</p>
+                            <div class="bg-primary-dark text-white rounded-xl p-4 shadow-inner space-y-0.5">
+                                <p id="confirmDayText" class="text-sm font-medium text-zinc-400">Tomorrow</p>
+                                <p id="confirmTimeText" class="text-2xl font-bold text-accent-gold tracking-tight">10:30 AM</p>
+                            </div>
+                        </div>
+
+                        <div class="divide-y divide-zinc-100 text-sm pt-2">
+                            <div class="flex justify-between items-center py-2.5">
+                                <span class="text-zinc-400 font-medium">Service Selected:</span>
+                                <span id="confirmServiceText" class="text-zinc-800 font-semibold truncate max-w-[65%]">Classic Haircut</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2.5">
+                                <span class="text-zinc-400 font-medium">Payment Method:</span>
+                                <span class="text-zinc-800 font-semibold">Pay at Counter</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2.5">
+                                <span class="text-zinc-400 font-medium">Total Cost:</span>
+                                <span id="confirmPriceText" class="text-emerald-600 font-bold">$35</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0">
+                        <button id="finalConfirmBtn" class="w-full py-3.5 rounded-xl font-bold bg-zinc-900 hover:bg-zinc-800 text-white text-center shadow-lg transition-all duration-200 active:scale-[0.98] tracking-wider text-xs uppercase">
+                            Confirm Appointment Placement
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#111111] text-zinc-500 text-center p-5 text-sm">
+        <p>&copy; 2026 The Modern Edge. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Dropdown Core Nodes
+        const sBtn = document.getElementById('serviceDropdownBtn');
+        const sMenu = document.getElementById('serviceDropdownMenu');
+        const sArrow = document.getElementById('serviceArrow');
+        const sText = document.getElementById('selectedServiceText');
+
+        const tBtn = document.getElementById('stylistDropdownBtn');
+        const tMenu = document.getElementById('stylistDropdownMenu');
+        const tArrow = document.getElementById('stylistArrow');
+        const tText = document.getElementById('selectedStylistText');
+
+        // Dynamic Card View Wrappers
+        const viewContainer = document.getElementById('viewContainer');
+        const backToMainBtn = document.getElementById('backToMainBtn');
+        const finalConfirmBtn = document.getElementById('finalConfirmBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const nextStepPlaceholderBtn = document.getElementById('nextStepPlaceholderBtn');
+
+        // Text Target Update Nodes
+        const headerStylistAvatar = document.getElementById('headerStylistAvatar');
+        const activeServicePrice = document.getElementById('activeServicePrice');
+        const activeStylistTitle = document.getElementById('activeStylistTitle');
+        const activeStylistSub = document.getElementById('activeStylistSub');
+
+        const confirmDayText = document.getElementById('confirmDayText');
+        const confirmTimeText = document.getElementById('confirmTimeText');
+        const confirmStylistName = document.getElementById('confirmStylistName');
+        const confirmStylistRole = document.getElementById('confirmStylistRole');
+        const confirmStylistAvatar = document.getElementById('confirmStylistAvatar');
+        const confirmServiceText = document.getElementById('confirmServiceText');
+        const confirmPriceText = document.getElementById('confirmPriceText');
+
+        // Selected State tracking
+        let selectedTimeSlot = null;
+
+        // Helper closures for state switching
+        function closeServiceDropdown() {
+            sMenu.classList.add('opacity-0', 'scale-95');
+            sArrow.classList.remove('rotate-180');
+            setTimeout(() => sMenu.classList.add('hidden'), 150);
+        }
+
+        function closeStylistDropdown() {
+            tMenu.classList.add('opacity-0', 'scale-95');
+            tArrow.classList.remove('rotate-180');
+            setTimeout(() => tMenu.classList.add('hidden'), 150);
+        }
+
+        // Service Actions Event Hooks
+        sBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeStylistDropdown();
+            const isClosed = sMenu.classList.contains('hidden');
+            if (isClosed) {
+                sMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    sMenu.classList.remove('opacity-0', 'scale-95');
+                    sArrow.classList.add('rotate-180');
+                }, 10);
+            } else {
+                closeServiceDropdown();
+            }
+        });
+
+        document.querySelectorAll('.service-item').forEach(item => {
+            item.addEventListener('click', () => {
+                sText.textContent = item.textContent;
+                activeServicePrice.textContent = item.getAttribute('data-price');
+                confirmPriceText.textContent = item.getAttribute('data-price');
+                confirmServiceText.textContent = item.textContent.split(' (')[0];
+                closeServiceDropdown();
+            });
+        });
+
+        // Stylist Actions Event Hooks
+        tBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeServiceDropdown();
+            const isClosed = tMenu.classList.contains('hidden');
+            if (isClosed) {
+                tMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    tMenu.classList.remove('opacity-0', 'scale-95');
+                    tArrow.classList.add('rotate-180');
+                }, 10);
+            } else {
+                closeStylistDropdown();
+            }
+        });
+
+        document.querySelectorAll('.stylist-item').forEach(item => {
+            item.addEventListener('click', () => {
+                tText.textContent = item.textContent;
+                const baseName = item.textContent.split(' (')[0];
+                const role = item.getAttribute('data-sub');
+                const avatarSrc = item.getAttribute('data-avatar');
+
+                headerStylistAvatar.innerHTML = `<img src="${avatarSrc}" alt="Avatar" class="w-full h-full object-cover">`;
+                activeStylistTitle.textContent = baseName;
+                activeStylistSub.textContent = role;
+
+                confirmStylistName.textContent = baseName;
+                confirmStylistRole.textContent = role;
+                confirmStylistAvatar.innerHTML = `<img src="${avatarSrc}" alt="Avatar" class="w-full h-full object-cover">`;
+
+                closeStylistDropdown();
+            });
+        });
+
+        // Clear Global overlay elements on backdrop click context action
+        document.addEventListener('click', () => {
+            closeServiceDropdown();
+            closeStylistDropdown();
+        });
+
+        // Time Slot interactions
+        document.querySelectorAll('.time-slot-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Clear out previous active button styling states
+                document.querySelectorAll('.time-slot-btn').forEach(b => {
+                    b.classList.remove('bg-zinc-900', 'text-white', 'border-zinc-900');
+                    b.classList.add('border-zinc-200', 'hover:bg-zinc-50');
+                });
+
+                // Set newly active design traits on selected button
+                btn.classList.add('bg-zinc-900', 'text-white', 'border-zinc-900');
+                btn.classList.remove('border-zinc-200', 'hover:bg-zinc-50');
+
+                selectedTimeSlot = {
+                    day: btn.getAttribute('data-day'),
+                    time: btn.getAttribute('data-time')
+                };
+
+                // Unlock next CTA step button trigger parameters
+                nextStepPlaceholderBtn.removeAttribute('disabled');
+                nextStepPlaceholderBtn.classList.remove('opacity-40', 'cursor-not-allowed');
+                nextStepPlaceholderBtn.textContent = 'Continue';
+            });
+        });
+
+        // Proceed forward transition routing
+        nextStepPlaceholderBtn.addEventListener('click', () => {
+            if (!selectedTimeSlot) return;
+            confirmDayText.textContent = selectedTimeSlot.day;
+            confirmTimeText.textContent = selectedTimeSlot.time;
+            viewContainer.style.transform = 'translateX(-50%)';
+        });
+
+        // Clear Selection logic reset handler
+        clearBtn.addEventListener('click', () => {
+            selectedTimeSlot = null;
+            document.querySelectorAll('.time-slot-btn').forEach(b => {
+                b.classList.remove('bg-zinc-900', 'text-white', 'border-zinc-900');
+                b.classList.add('border-zinc-200', 'hover:bg-zinc-50');
+            });
+            nextStepPlaceholderBtn.setAttribute('disabled', 'true');
+            nextStepPlaceholderBtn.classList.add('opacity-40', 'cursor-not-allowed');
+            nextStepPlaceholderBtn.textContent = 'Select a Slot';
+        });
+
+        backToMainBtn.addEventListener('click', () => {
+            viewContainer.style.transform = 'translateX(0%)';
+        });
+
+        finalConfirmBtn.addEventListener('click', () => {
+            alert(`Appointment successfully requested with ${confirmStylistName.textContent} for the ${confirmServiceText.textContent}!`);
+            viewContainer.style.transform = 'translateX(0%)';
+        });
+    </script>
+</body>
+</html>

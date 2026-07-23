@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickKode</title>
+    
+    <link class="square-favicon" rel="icon" type="image/png" href="qklight.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f7;
+        }
+        /* Apple-inspired smooth contrast masking text gradient */
+        .apple-gradient-text {
+            background: linear-gradient(145deg, #1d1d1f 20%, #434344 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-[#1d1d1f] tracking-tight min-h-screen relative overflow-x-hidden">
+
+    <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 min-h-screen pointer-events-none">
+        <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%); background: linear-gradient(to top right, oklch(0.646 0.222 41.116), oklch(0.488 0.243 264.376));" 
+             class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] opacity-[0.18] sm:left-[calc(50%-30rem)] sm:w-[72.1875rem] min-h-screen">
+        </div>
+    </div>
+
+    <header class="absolute inset-x-0 top-0 z-50">
+        <nav aria-label="Global" class="max-w-6xl mx-auto flex items-center justify-between p-6 lg:px-8">
+            <div class="flex lg:flex-1">
+                <a href="#" class="flex items-center space-x-3 group">
+                    <img src="qklight.png" alt="QuickKode Logo" class="w-7 h-7 object-contain transition-transform group-hover:scale-105 rounded-md">
+                    <span class="text-base font-bold tracking-tight text-[#1d1d1f]">QuickKode</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="relative pt-44 pb-20 z-10">
+        <div class="max-w-4xl mx-auto text-center px-6">
+            <h1 class="text-5xl sm:text-7xl font-bold tracking-tight apple-gradient-text mb-8 leading-[1.05]">
+                We make websites.
+            </h1>
+            <p class="text-lg sm:text-xl font-normal text-[#86868b] max-w-xl mx-auto leading-relaxed tracking-normal">
+                You think it, we make it.
+            </p>
+        </div>
+    </section>
+
+    <main class="max-w-6xl mx-auto px-6 pb-28 relative z-10">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-14 pb-5 border-b border-[#e8e8ed]">
+            <div class="inline-flex p-1 bg-[#e8e8ed]/70 backdrop-blur-md rounded-full self-start shadow-inner">
+                <button onclick="filterProjects('all')" id="btn-all" class="filter-btn px-5 py-1.5 text-xs font-medium rounded-full bg-white text-[#1d1d1f] shadow-sm transition-all duration-300">
+                    All
+                </button>
+                <button onclick="filterProjects('design')" id="btn-design" class="filter-btn px-5 py-1.5 text-xs font-medium rounded-full text-[#515154] hover:text-[#1d1d1f] transition-all duration-300">
+                    Architecture
+                </button>
+                <button onclick="filterProjects('business')" id="btn-business" class="filter-btn px-5 py-1.5 text-xs font-medium rounded-full text-[#515154] hover:text-[#1d1d1f] transition-all duration-300">
+                    Workspaces
+                </button>
+                <button onclick="filterProjects('lifestyle')" id="btn-lifestyle" class="filter-btn px-5 py-1.5 text-xs font-medium rounded-full text-[#515154] hover:text-[#1d1d1f] transition-all duration-300">
+                    Lifestyle
+                </button>
+            </div>
+
+            <div class="relative w-full sm:w-64">
+                <span class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#86868b] text-xs">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="text" id="searchBar" onkeyup="searchProjects()" placeholder="Filter..." 
+                    class="w-full pl-9 pr-4 py-2 text-xs bg-white border border-[#d2d2d7] rounded-xl focus:outline-none focus:border-[#0071e3] focus:ring-4 focus:ring-blue-50 transition-all placeholder-[#86868b]">
+            </div>
+        </div>
+
+        <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <div class="project-card bg-white rounded-3xl border border-[#e8e8ed] min-h-[580px] p-10 sm:p-14 flex flex-col justify-between hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)] hover:-translate-y-2 hover:border-[#d2d2d7] transition-all duration-500 group relative overflow-hidden" data-category="design" data-title="luxury remodeling la premium architectural design renovations">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-amber-100/20 to-transparent rounded-bl-full pointer-events-none"></div>
+                <div>
+                    <div class="flex items-center space-x-2 mb-10">
+                        <span class="text-[10px] font-bold tracking-wider uppercase text-[#86868b]">Architectural Services</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-[#1d1d1f] mb-5 tracking-tight transition-colors duration-300">Luxury Remodeling LA</h3>
+                    <p class="text-sm sm:text-base text-[#86868b] leading-relaxed font-normal max-w-sm mb-6">
+                        A beautiful template styled for high-end contractors and architects. Features built-in budget estimation options, interactive consultation scheduling prompts, and layout gallery blocks.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-10">
+                        <span class="text-[10px] font-medium bg-[#f5f5f7] border border-[#e8e8ed] text-[#515154] px-3 py-1 rounded-full">Responsive Website Template</span>
+                        <span class="text-[10px] font-medium bg-[#f5f5f7] border border-[#e8e8ed] text-[#515154] px-3 py-1 rounded-full">Cost Calculator Option</span>
+                    </div>
+                    <a href="Luxuryremodelingla.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3.5 w-full sm:w-auto bg-[#f5f5f7] hover:bg-[#0071e3] hover:text-white text-xs font-semibold rounded-xl text-[#1d1d1f] transition-all duration-300 group-hover:scale-[1.01]">
+                        View Project Template <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card bg-white rounded-3xl border border-[#e8e8ed] min-h-[580px] p-10 sm:p-14 flex flex-col justify-between hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)] hover:-translate-y-2 hover:border-[#d2d2d7] transition-all duration-500 group relative overflow-hidden" data-category="business" data-title="cospace premium flexible workspaces hub">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-blue-100/20 to-transparent rounded-bl-full pointer-events-none"></div>
+                <div>
+                    <div class="flex items-center space-x-2 mb-10">
+                        <span class="text-[10px] font-bold tracking-wider uppercase text-[#86868b]">Corporate Workspace Solutions</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-[#1d1d1f] mb-5 tracking-tight transition-colors duration-300">CoSpace Environments</h3>
+                    <p class="text-sm sm:text-base text-[#86868b] leading-relaxed font-normal max-w-sm mb-6">
+                        A clean website template for modern office hubs, shared desks, and workspace rentals. Contains responsive feature lists, pricing matrices, and reservation form interfaces.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-10">
+                        <span class="text-[10px] font-medium bg-[#f5f5f7] border border-[#e8e8ed] text-[#515154] px-3 py-1 rounded-full">Interactive Workspace Booking</span>
+                        <span class="text-[10px] font-medium bg-[#f5f5f7] border border-[#e8e8ed] text-[#515154] px-3 py-1 rounded-full">Pricing Tiers Layout</span>
+                    </div>
+                    <a href="CoSpace.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3.5 w-full sm:w-auto bg-[#f5f5f7] hover:bg-[#0071e3] hover:text-white text-xs font-semibold rounded-xl text-[#1d1d1f] transition-all duration-300 group-hover:scale-[1.01]">
+                        View Project Template <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card bg-white rounded-3xl border border-[#e8e8ed] min-h-[580px] p-10 sm:p-14 flex flex-col justify-between hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)] hover:-translate-y-2 hover:border-[#d2d2d7] transition-all duration-500 group relative overflow-hidden" data-category="lifestyle" data-title="the modern edge barber salon appointments">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-emerald-100/20 to-transparent rounded-bl-full pointer-events-none"></div>
+                <div>
+                    <div class="flex items-center space-x-2 mb-10">
+                        <span class="text-[10px] font-bold tracking-wider uppercase text-[#86868b]">Boutique Booking Page</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-[#1d1d1f] mb-5 tracking-tight transition-colors duration-300">The Modern Edge</h3>
+                    <p class="text-sm sm:text-base text-[#86868b] leading-relaxed font-normal max-w-sm mb-6">
+                        A sharp, dark-themed template designed for local barbershops, hair salons, and premium grooming brands. Comes integrated with slick service catalogs and step-by-step appt panels.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-10">
+                        <span class="text-[10px] font-medium bg-[#f5f5f7] border border-[#e8e8ed] text-[#515154] px-3 py-1 rounded-full">Dark Mode Design</span>
+                        <span class="text-[10px] font-medium bg-[#f5f5f7] border border-[#e8e8ed] text-[#515154] px-3 py-1 rounded-full">Appointment Wizard UI</span>
+                    </div>
+                    <a href="TheModernEdge.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3.5 w-full sm:w-auto bg-[#f5f5f7] hover:bg-[#0071e3] hover:text-white text-xs font-semibold rounded-xl text-[#1d1d1f] transition-all duration-300 group-hover:scale-[1.01]">
+                        View Project Template <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card bg-white rounded-3xl border border-[#e8e8ed] min-h-[580px] p-10 sm:p-14 flex flex-col justify-between hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)] hover:-translate-y-2 hover:border-[#d2d2d7] transition-all duration-500 group relative overflow-hidden" data-category="lifestyle" data-title="the daily grind grill restaurant cafe">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-purple-100/20 to-transparent rounded-bl-full pointer-events-none"></div>
+                <div>
+                    <div class="flex items-center space-x-2 mb-10">
+                        <span class="text-[10px] font-bold tracking-wider uppercase text-[#86868b]">Hospitality Storefront</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-[#1d1d1f] mb-5 tracking-tight transition-colors duration-300">The Daily Grind & Grill</h3>
+                    <p class="text-sm sm:text-base text-[#86868b] leading-relaxed font-normal max-w-sm mb-6">
+                        An elegant cafe and restaurant interface highlighting dynamic swappable interactive menu cards, custom store hour maps, and clean header layouts.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-10">
+                        <span class="text-[10px] font-medium bg-[#f5f5f7] border border-[#e8e8ed] text-[#515154] px-3 py-1 rounded-full">Tab-Swappable Menus</span>
+                        <span class="text-[10px] font-medium bg-[#f5f5f7] border border-[#e8e8ed] text-[#515154] px-3 py-1 rounded-full">Contact Details Area</span>
+                    </div>
+                    <a href="DailyGrind.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3.5 w-full sm:w-auto bg-[#f5f5f7] hover:bg-[#0071e3] hover:text-white text-xs font-semibold rounded-xl text-[#1d1d1f] transition-all duration-300 group-hover:scale-[1.01]">
+                        View Project Template <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="noResults" class="hidden text-center py-24 bg-white border border-[#e8e8ed] rounded-3xl mt-4">
+            <p class="text-sm font-medium text-[#86868b]">No templates match the filter parameters.</p>
+        </div>
+    </main>
+
+    <footer class="border-t border-[#e8e8ed] bg-white py-12 text-center text-xs text-[#86868b]">
+        <p>Copyright &copy; 2026 QuickKode. All layouts active.</p>
+    </footer>
+
+    <script>
+        let activeCategory = 'all';
+
+        function filterProjects(category) {
+            activeCategory = category;
+            
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-white', 'text-[#1d1d1f]', 'shadow-sm');
+                btn.classList.add('text-[#515154]', 'hover:text-[#1d1d1f]');
+            });
+            
+            const activeBtn = document.getElementById(`btn-${category}`);
+            activeBtn.classList.remove('text-[#515154]', 'hover:text-[#1d1d1f]');
+            activeBtn.classList.add('bg-white', 'text-[#1d1d1f]', 'shadow-sm');
+
+            evaluateVisibility();
+        }
+
+        function searchProjects() {
+            evaluateVisibility();
+        }
+
+        function evaluateVisibility() {
+            const query = document.getElementById('searchBar').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.project-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const matchesCategory = (activeCategory === 'all' || card.getAttribute('data-category') === activeCategory);
+                const matchesSearch = card.getAttribute('data-title').includes(query);
+
+                if (matchesCategory && matchesSearch) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            const noResults = document.getElementById('noResults');
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

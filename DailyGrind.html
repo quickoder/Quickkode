@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Grind & Grill</title>
+    <style>
+        /* --- Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --dark-charcoal: #22252a;
+            --warm-amber: #d97706;
+            --cream: #fefcfa;
+            --light-gray: #f3f4f6;
+            --text-dark: #374151;
+            --round-corner: 12px;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Navigation --- */
+        header {
+            background-color: var(--dark-charcoal);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            color: var(--cream);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--warm-amber);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--warm-amber);
+        }
+
+        .btn-book {
+            background-color: var(--warm-amber);
+            color: var(--cream) !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--round-corner);
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-book:hover {
+            background-color: #b45309;
+        }
+
+        /* --- Hero Section (Full Width) --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--cream);
+            padding: 0 1.5rem;
+            
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            max-width: 900px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn-menu {
+            border: 2px solid var(--warm-amber);
+            color: var(--cream);
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            border-radius: var(--round-corner);
+            transition: all 0.3s;
+        }
+
+        .btn-menu:hover {
+            background-color: var(--warm-amber);
+        }
+
+        /* --- Section Common --- */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark-charcoal);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--warm-amber);
+            margin: 0.5rem auto 0;
+            border-radius: var(--round-corner);
+        }
+
+        /* --- Menu Section --- */
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: var(--text-dark);
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            color: var(--warm-amber);
+            border-bottom: 2px solid var(--warm-amber);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-panel {
+            display: none;
+        }
+
+        .menu-panel.active {
+            display: grid;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: var(--round-corner);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .menu-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-top-left-radius: var(--round-corner);
+            border-top-right-radius: var(--round-corner);
+        }
+
+        .menu-info {
+            padding: 1.5rem;
+        }
+
+        .menu-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .menu-price {
+            color: var(--warm-amber);
+            font-weight: bold;
+        }
+
+        /* --- About Section --- */
+        .about-bg {
+            background-color: var(--light-gray);
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-img {
+            flex: 1;
+            width: 100%;
+            border-radius: var(--round-corner);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- Contact Section --- */
+        .contact-container {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: var(--round-corner);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .phone-link {
+            color: var(--warm-amber);
+            font-weight: bold;
+            font-size: 1.3rem;
+            transition: opacity 0.2s;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .phone-link:hover {
+            opacity: 0.8;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--dark-charcoal);
+            color: var(--cream);
+            text-align: center;
+            padding: 2.5rem 2rem;
+            width: 100%;
+        }
+
+        /* --- Responsive Styling (Mobile Optimization) --- */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+            .btn-book {
+                display: block;
+                width: 100%;
+            }
+            .hero {
+                padding-top: 6rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .about-content {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+            section {
+                padding: 4rem 1rem;
+            }
+            .menu-tabs {
+                flex-wrap: wrap;
+            }
+        }
+        
+        .bb{
+            background-color: black;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Daily<span>Grind</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="btn-book">Book a Table</a></li>
+            </ul>
+        </nav>
+    </header>
+<div class = "bb">
+    <section id="home" class="hero">
+        <h1>Fresh ingredients, unforgettable flavors.</h1>
+        <p>Experience artisanal coffees, hand-crafted breakfast plates, and premium grilled entrees served all day long in a warm, rustic atmosphere.</p>
+        <a href="#menu" class="btn-menu">View Our Menu</a>
+    </section>
+    </div>
+    <section id="menu">
+        <h2 class="section-title">Our Menu</h2>
+        <div class="menu-tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'mains')">Mains</button>
+            <button class="tab-btn" onclick="openTab(event, 'drinks')">Drinks</button>
+            <button class="tab-btn" onclick="openTab(event, 'desserts')">Desserts</button>
+        </div>
+
+        <div id="mains" class="menu-panel menu-grid active">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80" alt="Smoked Ribs" class="menu-img">
+                <div class="menu-info">
+                    <div class="menu-meta"><span class="menu-name">Signature BBQ Ribs</span><span class="menu-price">$24.99</span></div>
+                    <p>Slow-smoked pork ribs glazed with our house-made honey bourbon BBQ sauce, served with fries.</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80" alt="Woodfired Pizza" class="menu-img">
+                <div class="menu-info">
+                    <div class="menu-meta"><span class="menu-name">Artisan Margherita Pizza</span><span class="menu-price">$16.50</span></div>
+                    <p>Fresh mozzarella, heirloom tomatoes, and organic basil leaves over a rustic charred crust.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="drinks" class="menu-panel menu-grid">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=400&q=80" alt="Latte" class="menu-img">
+                <div class="menu-info">
+                    <div class="menu-meta"><span class="menu-name">Vanilla Bean Latte</span><span class="menu-price">$4.75</span></div>
+                    <p>Freshly pulled espresso with steamed oat milk and infused with organic Madagascar vanilla bean syrup.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="desserts" class="menu-panel menu-grid">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80" alt="Cake" class="menu-img">
+                <div class="menu-info">
+                    <div class="menu-meta"><span class="menu-name">Fudge Chocolate Cake</span><span class="menu-price">$7.00</span></div>
+                    <p>Rich, triple-layered chocolate cake layered with dark chocolate ganache and served warm.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="about-bg">
+        <section id="about">
+            <h2 class="section-title">Our Story</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Crafted with passion since 2018.</h3><br>
+                    <p>At The Daily Grind & Grill, we believe that dining out should feel like coming home. What started as a small community coffee cart has grown into a bustling neighborhood grill.</p><br>
+                    <p>We source 100% of our meats and produce from local, organic farms within a 50-mile radius. From our morning espresso grinds to our evening wood-fired grill, every dish is prepared with uncompromising love and quality.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=500&q=80" alt="Inside restaurant" class="about-img">
+            </div>
+        </section>
+    </div>
+
+    <section id="contact">
+        <h2 class="section-title">Find Us</h2>
+        <div class="contact-container">
+            <h3>Hours of Operation</h3><br>
+            <p><strong>Monday - Friday:</strong> 7:00 AM - 10:00 PM</p>
+            <p><strong>Saturday - Sunday:</strong> 8:00 AM - 11:00 PM</p>
+            <br><br>
+            <h3>Location & Phone</h3><br>
+            <p>123 Flavor Avenue, Culinary District</p>
+            <p>New York, NY 10001</p><br>
+            <p><strong>Click to call:</strong></p>
+            <a href="tel:5551234567" class="phone-link">(555) 123-4567</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 The Daily Grind & Grill. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, menuPanel, tabLinks;
+            
+            menuPanel = document.getElementsByClassName("menu-panel");
+            for (i = 0; i < menuPanel.length; i++) {
+                menuPanel[i].classList.remove("active");
+            }
+            
+            tabLinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>

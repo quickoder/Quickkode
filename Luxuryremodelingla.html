@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Remodeling LA | Premium Architectural Design & Renovations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom smooth offset for sticky navbar */
+        section {
+            scroll-margin-top: 6rem;
+        }
+    </style>
+</head>
+<body class="bg-[#FAF9F5] text-stone-900 font-sans antialiased selection:bg-amber-100 selection:text-amber-900">
+
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+            
+            <a href="#home" class="flex items-center gap-3.5 group">
+                <div class="w-10 h-10 border border-stone-950 flex items-center justify-center relative transition-colors group-hover:bg-stone-950 group-hover:text-white">
+                    <svg class="w-5 h-5 text-current" fill="none" stroke="currentColor" stroke-width="1.25" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v16h16M12 4v8h8m-8 0l8 8"></path>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-md font-bold tracking-[0.3em] text-stone-950 uppercase leading-none">Luxury</span>
+                    <span class="text-[11px] font-light tracking-[0.18em] text-stone-500 uppercase mt-1">Remodeling <span class="font-bold text-stone-950">LA</span></span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex space-x-8 text-xs font-semibold tracking-[0.2em] uppercase text-stone-600">
+                <a href="#home" class="nav-link hover:text-amber-800 transition-colors py-2">Home</a>
+                <a href="#about" class="nav-link hover:text-amber-800 transition-colors py-2">Our Studio</a>
+                <a href="#services" class="nav-link hover:text-amber-800 transition-colors py-2">Services</a>
+                <a href="#portfolio" class="nav-link hover:text-amber-800 transition-colors py-2">Portfolio</a>
+                <a href="#calculator" class="nav-link hover:text-amber-800 transition-colors py-2">Budget Estimator</a>
+            </div>
+            
+            <div class="hidden md:block">
+                <a href="#contact" class="bg-stone-950 hover:bg-amber-800 text-white text-[11px] font-bold tracking-[0.2em] uppercase px-7 py-4 transition-all duration-300">
+                    Inquire Now
+                </a>
+            </div>
+
+            <button id="menu-open-btn" class="md:hidden text-stone-950 p-2 focus:outline-none" aria-label="Open Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 z-50 bg-stone-950/40 backdrop-blur-md hidden transition-opacity duration-300">
+            <div class="absolute right-0 top-0 bottom-0 w-4/5 max-w-sm bg-white p-8 shadow-2xl flex flex-col justify-between transform transition-transform duration-300">
+                <div>
+                    <div class="flex justify-between items-center mb-12">
+                        <span class="text-sm font-bold tracking-widest text-stone-950 uppercase">Menu</span>
+                        <button id="menu-close-btn" class="text-stone-500 p-1 focus:outline-none" aria-label="Close Menu">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="space-y-6 text-sm font-semibold tracking-widest uppercase">
+                        <a href="#home" class="mobile-nav-link block text-stone-800 py-2 border-b border-stone-100">Home</a>
+                        <a href="#about" class="mobile-nav-link block text-stone-800 py-2 border-b border-stone-100">Our Studio</a>
+                        <a href="#services" class="mobile-nav-link block text-stone-800 py-2 border-b border-stone-100">Services</a>
+                        <a href="#portfolio" class="mobile-nav-link block text-stone-800 py-2 border-b border-stone-100">Portfolio</a>
+                        <a href="#calculator" class="mobile-nav-link block text-stone-800 py-2 border-b border-stone-100">Budget Estimator</a>
+                    </div>
+                </div>
+                <a href="#contact" class="mobile-nav-link block text-center bg-stone-950 text-white text-xs font-bold tracking-widest uppercase py-4">Inquire Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative bg-stone-950 text-white min-h-[85vh] flex items-center px-6 lg:px-12 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center" style="background-image: url('https://greenworksconstruction.com/wp-content/uploads/2024/07/0-11.jpg');"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#FAF9F5] via-stone-950/40 to-stone-950/70 z-0"></div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto text-center py-24">
+            <span class="text-[11px] font-bold tracking-[0.35em] uppercase text-amber-400 block mb-6">Architectural Renovations &bull; Los Angeles</span>
+            <h1 class="text-4xl sm:text-6xl md:text-[5rem] font-bold tracking-tight mb-8 uppercase leading-[1.1]">
+                Elite Spaces. <br><span class="font-serif italic font-light tracking-normal text-amber-200 lowercase">engineered</span> Perfect.
+            </h1>
+            <p class="text-base md:text-lg text-stone-300 max-w-2xl mx-auto mb-12 font-light tracking-wide">
+                Prestige structural transformations, dynamic master floor expansions, and bespoke interior executions crafted exclusively across Greater Los Angeles.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
+                <a href="#portfolio" class="w-full sm:w-auto bg-white text-stone-950 hover:bg-stone-100 px-9 py-5 font-bold text-xs tracking-[0.2em] uppercase transition text-center">View Portfolio</a>
+                <a href="#contact" class="w-full sm:w-auto border border-white/30 hover:bg-white/10 px-9 py-5 font-bold text-xs tracking-[0.2em] uppercase transition text-center">Book Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 max-w-5xl mx-auto px-6 text-center">
+        <h2 class="text-xs font-bold tracking-[0.4em] uppercase text-amber-800 mb-4">The Standard of Luxury</h2>
+        <p class="font-serif text-2xl md:text-3xl text-stone-800 font-light leading-relaxed italic">
+            "We don't simply renovate properties. We execute meticulous, structurally complex design updates that reshape how you view upscale southern California living."
+        </p>
+    </section>
+
+    <section id="about" class="py-24 max-w-7xl mx-auto px-6 lg:px-12 border-t border-stone-200/60">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <span class="text-xs font-bold tracking-[0.3em] uppercase text-amber-800 block mb-3">Our History</span>
+                <h2 class="text-3xl md:text-4xl font-light tracking-tight text-stone-950 uppercase mb-6">Meticulous Craft, Absolute Integrity</h2>
+                <p class="text-stone-600 font-light text-sm leading-relaxed mb-6">
+                    Based in the heart of Los Angeles, Luxury Remodeling LA bridges architectural discipline with exceptional finish craftsmanship. From structural foundation modifications to precise custom millwork installation, our team controls every micro-detail of the build timeline.
+                </p>
+                <p class="text-stone-600 font-light text-sm leading-relaxed mb-8">
+                    We cooperate closely with structural engineers, interior specifiers, and zoning departments across local municipalities to guarantee your build outstrips safety expectations and luxury benchmarks.
+                </p>
+                
+                <div class="grid grid-cols-3 gap-6 border-t border-stone-200 pt-8">
+                    <div>
+                        <span class="block text-2xl font-semibold text-stone-950">12+</span>
+                        <span class="text-[10px] uppercase tracking-wider text-stone-400 font-medium">Years in LA</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-semibold text-stone-950">180+</span>
+                        <span class="text-[10px] uppercase tracking-wider text-stone-400 font-medium">Projects Done</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-semibold text-stone-950">100%</span>
+                        <span class="text-[10px] uppercase tracking-wider text-stone-400 font-medium">Elite Execution</span>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-stone-900 h-[400px] md:h-[500px] overflow-hidden shadow-xl border border-stone-200">
+                <img src="https://sweeten.com/wp-content/uploads/2023/11/128992-Barbie-House-08.jpg" class="w-full h-full object-cover opacity-80" alt="Studio details">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 max-w-7xl mx-auto px-6 lg:px-12 border-t border-stone-200/60">
+        <div class="text-center max-w-3xl mx-auto mb-20">
+            <span class="text-xs font-bold tracking-[0.3em] uppercase text-amber-800 block mb-2">Our Capabilities</span>
+            <h2 class="text-3xl font-light text-stone-950 sm:text-4xl mb-4 uppercase tracking-wide">Architectural Engineering Capabilities</h2>
+            <div class="h-0.5 w-16 bg-amber-700/40 mx-auto"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-8 border border-stone-200 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="text-amber-800 mb-6 font-serif text-3xl font-light">01</div>
+                    <h3 class="text-sm font-bold tracking-wider uppercase text-stone-950 mb-4">Kitchen Mastery</h3>
+                    <p class="text-stone-600 text-xs font-light leading-relaxed">Book-matched stone backsplashes, integrated hidden premium appliances, flush European cabinetry, and functional open island re-engineering.</p>
+                </div>
+                <a href="#contact" onclick="prefillContact('Luxury Kitchen Renovation')" class="text-[10px] uppercase tracking-widest font-bold text-amber-800 hover:text-stone-950 transition text-left mt-8 block">Inquire Scope &rarr;</a>
+            </div>
+
+            <div class="bg-white p-8 border border-stone-200 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="text-amber-800 mb-6 font-serif text-3xl font-light">02</div>
+                    <h3 class="text-sm font-bold tracking-wider uppercase text-stone-950 mb-4">Spa Sanctuaries</h3>
+                    <p class="text-stone-600 text-xs font-light leading-relaxed">Custom floor-to-ceiling wet rooms, curbless linear slot drainage, smart steam shower integrations, and premium concealed fixtures.</p>
+                </div>
+                <a href="#contact" onclick="prefillContact('Spa Sanctuary Renovation')" class="text-[10px] uppercase tracking-widest font-bold text-amber-800 hover:text-stone-950 transition text-left mt-8 block">Inquire Scope &rarr;</a>
+            </div>
+
+            <div class="bg-white p-8 border border-stone-200 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="text-amber-800 mb-6 font-serif text-3xl font-light">03</div>
+                    <h3 class="text-sm font-bold tracking-wider uppercase text-stone-950 mb-4">Full-Home Transformations</h3>
+                    <p class="text-stone-600 text-xs font-light leading-relaxed">Complete floor plan optimization, load-bearing partition updates, unified architectural lighting design, and premium wide-plank flooring transitions.</p>
+                </div>
+                <a href="#contact" onclick="prefillContact('Full Home Transformation')" class="text-[10px] uppercase tracking-widest font-bold text-amber-800 hover:text-stone-950 transition text-left mt-8 block">Inquire Scope &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-24 max-w-7xl mx-auto px-6 lg:px-12 border-t border-stone-200/60">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs font-bold tracking-[0.3em] uppercase text-amber-800 block mb-2">Featured Work</span>
+            <h2 class="text-3xl font-light text-stone-950 sm:text-4xl mb-4 uppercase tracking-wide">The Architectural Registry</h2>
+            <div class="h-0.5 w-16 bg-amber-700/40 mx-auto"></div>
+        </div>
+        
+        <div class="grid sm:grid-cols-2 gap-8">
+            <div class="group relative overflow-hidden bg-stone-900 h-[350px]">
+                <img src="https://greenworksconstruction.com/wp-content/uploads/2024/07/0-11.jpg" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" alt="Bel Air Manor">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent flex flex-col justify-end p-8">
+                    <span class="text-[10px] font-bold tracking-widest text-amber-400 uppercase mb-1">Residential Expansion</span>
+                    <h4 class="text-lg font-medium text-white uppercase">The Bel Air Crest Residence</h4>
+                </div>
+            </div>
+            <div class="group relative overflow-hidden bg-stone-900 h-[350px]">
+                <img src="https://sweeten.com/wp-content/uploads/2023/11/128992-Barbie-House-08.jpg" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" alt="Hollywood Hills Villa">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent flex flex-col justify-end p-8">
+                    <span class="text-[10px] font-bold tracking-widest text-amber-400 uppercase mb-1">Bespoke Millwork</span>
+                    <h4 class="text-lg font-medium text-white uppercase">Hollywood Hills Architectural Villa</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-24 bg-stone-900 text-stone-100 px-6 lg:px-12">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold tracking-[0.3em] uppercase text-amber-400 block mb-2">Project Estimator</span>
+                <h2 class="text-2xl sm:text-3xl font-light text-white uppercase tracking-wide">Dynamic Budget Planner</h2>
+            </div>
+            
+            <div class="bg-stone-950 p-8 border border-stone-800 rounded-sm space-y-6">
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-stone-400 font-bold mb-3">Select Scope of Interest</label>
+                    <select id="calc-scope" class="w-full bg-stone-900 border border-stone-700 p-4 text-sm text-stone-200 focus:outline-none focus:border-amber-400">
+                        <option value="150000">Luxury Kitchen Transformation ($150,000+ avg)</option>
+                        <option value="85000">Master Spa Sanctuary ($85,000+ avg)</option>
+                        <option value="450000">Full Structural Estate Remodel ($450,000+ avg)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-stone-400 font-bold mb-3">Approximate Square Footage</label>
+                    <input id="calc-sqft" type="number" value="1200" class="w-full bg-stone-900 border border-stone-700 p-4 text-sm text-stone-200 focus:outline-none focus:border-amber-400">
+                </div>
+                <button onclick="calculateEstimate()" class="w-full bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold text-xs tracking-widest uppercase py-4 transition">
+                    Generate Range Profile
+                </button>
+                <div id="calc-result" class="text-center text-sm font-mono text-amber-400 pt-4 hidden"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <span class="text-xs font-bold tracking-[0.3em] uppercase text-amber-800 block mb-2">Begin Your Journey</span>
+            <h2 class="text-3xl font-light text-stone-950 uppercase tracking-wide">Design Consultation Request</h2>
+            <div class="h-0.5 w-16 bg-amber-700/40 mx-auto mt-4"></div>
+        </div>
+
+        <form id="projectIntakeForm" class="space-y-8">
+            <div class="grid sm:grid-cols-2 gap-8">
+                <div>
+                    <label class="block text-xs font-bold tracking-wider uppercase text-stone-500 mb-2">Full Name *</label>
+                    <input type="text" required class="w-full border-b border-stone-300 bg-transparent py-3 text-sm focus:outline-none focus:border-stone-950 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold tracking-wider uppercase text-stone-500 mb-2">Email Address *</label>
+                    <input type="email" required class="w-full border-b border-stone-300 bg-transparent py-3 text-sm focus:outline-none focus:border-stone-950 transition">
+                </div>
+            </div>
+            <div>
+                <label class="block text-xs font-bold tracking-wider uppercase text-stone-500 mb-2">Project Classification</label>
+                <input type="text" id="form-scope" class="w-full border-b border-stone-300 bg-transparent py-3 text-sm focus:outline-none focus:border-stone-950 transition" placeholder="e.g., Luxury Kitchen Renovation">
+            </div>
+            <div>
+                <label class="block text-xs font-bold tracking-wider uppercase text-stone-500 mb-2">Project Vision Details</label>
+                <textarea rows="4" class="w-full border border-stone-300 bg-transparent p-4 text-sm focus:outline-none focus:border-stone-950 transition"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-stone-950 hover:bg-amber-800 text-white text-xs font-bold tracking-widest uppercase py-5 transition duration-300">
+                Submit Consultation Request
+                </button>
+        </form>
+    </section>
+
+    <footer class="bg-stone-950 text-stone-500 text-xs py-12 border-t border-stone-900 text-center">
+        <p class="tracking-widest uppercase text-stone-400 mb-2">&copy; Luxury Remodeling LA. All Rights Reserved.</p>
+        <p class="font-light">Premium Architectural Design & Structure Management.</p>
+    </footer>
+
+    <script>
+        // Responsive Hamburger Mobile Menu Logic
+        const menuOpenBtn = document.getElementById('menu-open-btn');
+        const menuCloseBtn = document.getElementById('menu-close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        menuOpenBtn.addEventListener('click', toggleMenu);
+        menuCloseBtn.addEventListener('click', toggleMenu);
+
+        // Auto-close menu when choosing a section on mobile
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Prefill Form classification from services
+        function prefillContact(scopeName) {
+            document.getElementById('form-scope').value = scopeName;
+        }
+
+        // Project Budget Estimator Logic
+        function calculateEstimate() {
+            const scopeMultiplier = parseFloat(document.getElementById('calc-scope').value);
+            const sqft = parseFloat(document.getElementById('calc-sqft').value) || 0;
+            
+            if (sqft <= 0) {
+                alert('Please enter a valid square footage.');
+                return;
+            }
+
+            const calculationBase = scopeMultiplier + (sqft * 75);
+            const lowEstimate = Math.round(calculationBase * 0.9);
+            const highEstimate = Math.round(calculationBase * 1.25);
+
+            const container = document.getElementById('calc-result');
+            container.innerText = `Target Investment Profile Range: $${lowEstimate.toLocaleString()} - $${highEstimate.toLocaleString()}`;
+            container.classList.remove('hidden');
+        }
+
+        // Sample submission handler
+        document.getElementById('projectIntakeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest. A Design Advisor from our Studio will reach out shortly.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
